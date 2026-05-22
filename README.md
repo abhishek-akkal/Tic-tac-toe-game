@@ -17,7 +17,7 @@ A simple and interactive Tic Tac Toe web app built using HTML, CSS, and JavaScri
 
 ## 🌐 Live Demo
 
-https://abhishek-akkal.github.io/Tic-tac-toe-game/
+https://tic-tac-toe-game-zeta-lemon-94.vercel.app/
 
 ## 👨‍💻 Author
 
