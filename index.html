@@ -1,38 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Tic Tac Toe</title>
-    <link rel="icon" href="Favicon-icon.png" type="image">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe · Parlor Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <main>
-        <div class="msg-container hide">
-            <p id="msg">Winner</p>
-            <button id="new-game-btn">New Game</button>
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <main class="app">
+        <div class="toolbar">
+            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light and dark theme"
+                title="Toggle theme">
+                <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+                </svg>
+                <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"
+                        d="M20 13.6A8.5 8.5 0 1 1 10.4 4a6.6 6.6 0 0 0 9.6 9.6Z" />
+                </svg>
+            </button>
+            <button class="icon-btn" id="sound-toggle" type="button" aria-label="Toggle sound effects"
+                title="Toggle sound">
+                <svg class="icon icon-sound-on" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"
+                        d="M4 9.5h3.2L12 5.8v12.4l-4.8-3.7H4z" />
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        d="M16.2 8.4a5 5 0 0 1 0 7.2M18.7 6a8.5 8.5 0 0 1 0 12" />
+                </svg>
+                <svg class="icon icon-sound-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"
+                        d="M4 9.5h3.2L12 5.8v12.4l-4.8-3.7H4z" />
+                    <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        d="M16 9.2l4.2 4.2M20.2 9.2 16 13.4" />
+                </svg>
+            </button>
         </div>
-        <div class="container">
-            <div class="title">
-                <h1>Tic Tac Toe Game</h1>
+
+        <header class="hero">
+            <p class="eyebrow">A Parlor Classic</p>
+            <h1 class="title">Tic <span class="accent">Tac</span> Toe</h1>
+        </header>
+
+        <section class="scoreboard" aria-label="Scoreboard">
+            <div class="score-item score-x">
+                <span class="score-label">Player X</span>
+                <span class="score-value" id="score-x">0</span>
             </div>
-            <div class="game">
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
+            <div class="score-item score-draw">
+                <span class="score-label">Draws</span>
+                <span class="score-value" id="score-d">0</span>
+            </div>
+            <div class="score-item score-o">
+                <span class="score-label">Player O</span>
+                <span class="score-value" id="score-o">0</span>
+            </div>
+        </section>
+
+        <div class="turn-indicator" id="turn-indicator" role="status" aria-live="polite">
+            <span class="turn-dot"></span>
+            <span id="turn-text">X to move</span>
+        </div>
+
+        <div class="board-wrap">
+            <div class="board" id="board" role="grid" aria-label="Tic tac toe board">
+                <button class="cell" data-index="0" aria-label="Row 1, column 1"></button>
+                <button class="cell" data-index="1" aria-label="Row 1, column 2"></button>
+                <button class="cell" data-index="2" aria-label="Row 1, column 3"></button>
+                <button class="cell" data-index="3" aria-label="Row 2, column 1"></button>
+                <button class="cell" data-index="4" aria-label="Row 2, column 2"></button>
+                <button class="cell" data-index="5" aria-label="Row 2, column 3"></button>
+                <button class="cell" data-index="6" aria-label="Row 3, column 1"></button>
+                <button class="cell" data-index="7" aria-label="Row 3, column 2"></button>
+                <button class="cell" data-index="8" aria-label="Row 3, column 3"></button>
+                <svg class="strike-svg" id="strike-svg" aria-hidden="true">
+                    <line id="strike-line" class="strike-line" />
+                </svg>
             </div>
         </div>
-        <button id="reset-btn">Reset Game</button>
+
+        <div class="controls">
+            <button class="btn btn-ghost" id="new-game-btn" type="button">New Round</button>
+            <button class="btn btn-primary" id="reset-btn" type="button">Reset Match</button>
+        </div>
     </main>
+
+    <div class="modal-overlay hide" id="modal-overlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-icon" id="modal-icon">✕</div>
+            <h2 class="modal-title" id="modal-title">X Wins</h2>
+            <p class="modal-sub" id="modal-sub">Three in a row, top row.</p>
+            <button class="btn btn-primary" id="modal-btn" type="button">Play Again</button>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
