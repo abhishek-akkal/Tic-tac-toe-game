@@ -4,7 +4,7 @@ A polished, portfolio-ready Tic Tac Toe built with **HTML, CSS, and vanilla Java
 
 ## 🌐 Live Demo
 
-https://tic-tac-toe-game-zeta-lemon-94.vercel.app/
+https://tic-tac-toe-game-sj5j.vercel.app/
 
 ## ✨ Features
 
