@@ -2,13 +2,19 @@
 
 A polished, portfolio-ready Tic Tac Toe built with **HTML, CSS, and vanilla JavaScript** — no frameworks, no libraries. Glassmorphism board, brass-and-felt color palette, animated winning strike line, live scoreboard, and sound — all in three clean files.
 
+---
+
 ## 🌐 Live Demo
 
 https://tic-tac-toe-game-sj5j.vercel.app/
 
+---
+
 ## 📸 Preview
 
 [Watch Tic Tac Toe Demo](https://www.linkedin.com/posts/abhishek-akkal-0a0ab62b2_100daysofcode-day88-html-ugcPost-7483483225713954816-5x4r/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEtE-_gB_Calzo0B_hiKlaIm_F6R5PuI0mk)
+
+---
 
 ## ✨ Features
 
@@ -39,11 +45,15 @@ https://tic-tac-toe-game-sj5j.vercel.app/
 - Keyboard accessible — arrow keys move focus around the grid, all controls are tab-reachable with visible focus rings
 - Respects `prefers-reduced-motion` for users who've disabled animations
 
+---
+
 ## 🛠️ Tech Stack
 
 - HTML5
 - CSS3 (custom properties, no framework)
 - Vanilla JavaScript (ES6+, no dependencies)
+
+---
 
 ## 📁 Project Structure
 
@@ -53,6 +63,8 @@ https://tic-tac-toe-game-sj5j.vercel.app/
 ├── app.js       # Game logic, scoring, sound, and theme handling
 └── README.md
 ```
+
+---
 
 ## ▶️ Running Locally
 
@@ -68,6 +80,8 @@ Then just open `index.html` in your browser, or serve it locally:
 ```bash
 npx serve .
 ```
+
+---
 
 ## 👨‍💻 Author
 
