@@ -6,6 +6,10 @@ A polished, portfolio-ready Tic Tac Toe built with **HTML, CSS, and vanilla Java
 
 https://tic-tac-toe-game-sj5j.vercel.app/
 
+## 📸 Preview
+
+[Watch Tic Tac Toe Demo](https://www.linkedin.com/posts/abhishek-akkal-0a0ab62b2_100daysofcode-day88-html-ugcPost-7483483225713954816-5x4r/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEtE-_gB_Calzo0B_hiKlaIm_F6R5PuI0mk)
+
 ## ✨ Features
 
 **Gameplay**
